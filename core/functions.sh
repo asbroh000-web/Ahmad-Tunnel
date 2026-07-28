@@ -105,3 +105,25 @@ confirm() {
 command_exists() {
     command -v "$1" >/dev/null 2>&1
 }
+########################################
+# Service Status Icon
+########################################
+
+status_icon() {
+
+    case "$1" in
+        ONLINE)
+            echo -e "${SUCCESS}● Online${RESET}"
+            ;;
+        OFFLINE)
+            echo -e "${ERROR}● Offline${RESET}"
+            ;;
+        NOT_INSTALLED)
+            echo -e "${WARNING}● Not Installed${RESET}"
+            ;;
+        *)
+            echo "-"
+            ;;
+    esac
+
+}
